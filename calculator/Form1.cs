@@ -16,7 +16,8 @@ namespace calculator
         {
             InitializeComponent();
         }
-
+        float num, ans;
+        int count;
         public void disable()//create one method to disable 
         {
             textBox1.Enabled = false;
@@ -158,6 +159,90 @@ namespace calculator
         private void button1_Click(object sender, EventArgs e)
         {
             enable();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            num = float.Parse(textBox1.Text);
+            textBox1.Clear();
+            textBox1.Focus();
+            count = 1;
+            label1.Text = num.ToString() + "+";
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            num = float.Parse(textBox1.Text);
+            textBox1.Clear();
+            textBox1.Focus();
+            count = 2;
+            label1.Text = num.ToString() + "-";
+        }
+
+        private void button13_Click(object sender, EventArgs e)
+        {
+            num = float.Parse(textBox1.Text);
+            textBox1.Clear();
+            textBox1.Focus();
+            count = 3;
+            label1.Text = num.ToString() + "*";
+        }
+
+        private void button17_Click(object sender, EventArgs e)
+        {
+            num = float.Parse(textBox1.Text);
+            textBox1.Clear();
+            textBox1.Focus();
+            count = 4;
+            label1.Text = num.ToString() + "/";
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            compute();
+            label1.Text = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)//clean button
+        {
+            textBox1.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int length = textBox1.TextLength - 1;
+            string text = textBox1.Text;
+            textBox1.Clear();
+            for (int i = 0; i < length; i++)
+            {
+                textBox1.Text = textBox1.Text + text[i];
+            }
+        }
+
+        public void compute()
+        {
+            switch (count)
+            {
+                case 1:
+                    ans = num + float.Parse(textBox1.Text);
+                    textBox1.Text = ans.ToString();
+                        break;
+                case 2:
+                    ans = num - float.Parse(textBox1.Text);
+                    textBox1.Text = ans.ToString();
+                    break;
+                case 3:
+                    ans = num * float.Parse(textBox1.Text);
+                    textBox1.Text = ans.ToString();
+                    break;
+                case 4:
+                    ans = num / float.Parse(textBox1.Text);
+                    textBox1.Text = ans.ToString();
+                    break;
+
+                default:
+                    break;
+            }
         }
     }
 }
