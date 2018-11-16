@@ -18,7 +18,7 @@ namespace calculator
         }
         float num, ans;
         int count;
-        public void disable()//create one method to disable 
+        public void disable()//method to disable 
         {
             textBox1.Enabled = false;
             button1.Show();
@@ -44,7 +44,7 @@ namespace calculator
             button3.Enabled = false;
         }
 
-        public void enable()
+        public void enable()//method to enable
         {
             textBox1.Enabled = true;
             button1.Hide();
@@ -210,7 +210,7 @@ namespace calculator
 
         private void button3_Click(object sender, EventArgs e)
         {
-            int length = textBox1.TextLength - 1;
+            int length = textBox1.TextLength - 1;//backspace
             string text = textBox1.Text;
             textBox1.Clear();
             for (int i = 0; i < length; i++)
@@ -219,7 +219,7 @@ namespace calculator
             }
         }
 
-        public void compute()
+        public void compute()//compute the opearation
         {
             switch (count)
             {
